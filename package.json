@@ -1,0 +1,25 @@
+{
+    "name": "javagram-support",
+    "displayName": "javagram-support",
+    "description": "Javagram is an old java-extended script-like language. It originally aimed for agile development. Use this extension to support your javagram development in either legacy or new systems.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.67.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "javagram",
+            "aliases": ["Javagram", "javagram"],
+            "extensions": ["jag"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "javagram",
+            "scopeName": "source.javagram",
+            "path": "./syntaxes/javagram.tmLanguage.json"
+        }]
+    }
+}
