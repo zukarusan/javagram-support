@@ -13,8 +13,12 @@
         "languages": [{
             "id": "javagram",
             "aliases": ["Javagram", "javagram"],
-            "extensions": ["jag"],
-            "configuration": "./language-configuration.json"
+            "extensions": [".jag"],
+            "configuration": "./language-configuration.json",
+            "icon": {
+                "light": "./icons/Jag.ico",
+                "dark": "./icons/Jag.ico"
+            }
         }],
         "grammars": [{
             "language": "javagram",

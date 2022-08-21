@@ -1,32 +1,41 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.javagram",
 	"name": "Javagram",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.javagram",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.javagram",
-			"begin": "\"",
-			"end": "\"",
+			"begin": "(<)\\s*(\\bjag\\b)\\s*",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.definition.meta.tag.javagram"
+				},
+				"2": {
+					"name": "entity.name.tag"
+				}
+			},
+			"end": "(>)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.meta.tag.javagram"
+				}
+			},
 			"patterns": [
 				{
-					"name": "constant.character.escape.javagram",
-					"match": "\\\\."
+					"match": "(?:(\\bdomain\\b)|\\b\\w+\\b)\\s*(=)?\\s*(\"[^\"\\\\]*(?:\\\\.[^\"\\\\]*)*\")?\\s*",
+					"captures":  {
+						"1": {
+							"name": "entity.other.attribute-name.domain.javagram"
+						},
+						"2": {
+							"name": "keyword.operator.assignment.javagram"
+						},
+						"3": {
+							"name": "string.tag.javagram"
+						}
+					}
 				}
 			]
 		}
-	},
-	"scopeName": "source.javagram"
+	],
+	"repository": {
+	}
 }
