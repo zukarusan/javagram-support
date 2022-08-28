@@ -34,8 +34,35 @@
 					}
 				}
 			]
+		},
+		{
+			"begin": "(<\\s*\\bjag\\b\\s*>)",
+			"beginCaptures": {
+				"1": {
+					"name": "meta.tag.open.script.javagram"
+				}
+			},
+			"end": "(<\/\\s*\\bjag\\b\\s*>)",
+			"endCaptures": {
+				"1": {
+					"name": "meta.tag.close.script.javagram"
+				}
+			},
+			"name": "meta.tag.script.javagram",
+			"contentName": "meta.script.javagram",
+			"patterns": [
+				{
+					
+				},
+				{
+					"include": "#code"
+				}
+			]
 		}
 	],
 	"repository": {
+		"code": {
+
+		}
 	}
 }
