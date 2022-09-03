@@ -3,7 +3,7 @@
 	"name": "Javagram",
 	"patterns": [
 		{
-			"begin": "(<)\\s*(\\bjag\\b)\\s*",
+			"begin": "(<)(\\bjag\\b)[\\s\\n]*",
 			"beginCaptures": {
 				"1": {
 					"name": "punctuation.definition.meta.tag.javagram"
@@ -20,10 +20,10 @@
 			},
 			"patterns": [
 				{
-					"match": "(?:(\\bdomain\\b)|\\b\\w+\\b)\\s*(=)?\\s*(\"[^\"\\\\]*(?:\\\\.[^\"\\\\]*)*\")?\\s*",
+					"match": "(?:(\\bdomain\\b)|\\b\\mjv\\b)[\\s\\n]*(=)?[\\s\\n]*(\"[^\"\\\\]*(?:\\\\.[^\"\\\\]*)*\")?[\\s\\n]*",
 					"captures":  {
 						"1": {
-							"name": "entity.other.attribute-name.domain.javagram"
+							"name": "entity.other.attribute-name.domainAndMajor.javagram"
 						},
 						"2": {
 							"name": "keyword.operator.assignment.javagram"
@@ -32,17 +32,59 @@
 							"name": "string.tag.javagram"
 						}
 					}
+				},
+				{
+					"match": "(\\bstage\\b)[\\s\\n]*(=)?[\\s\\n]*(\\$dev|\\$test|\\$prod)?[\\s\\n]*",
+					"captures":  {
+						"1": {
+							"name": "entity.other.attribute-name.stage.javagram"
+						},
+						"2": {
+							"name": "keyword.operator.assignment.javagram"
+						},
+						"3": {
+							"name": "string.symbol.tag.stage.javagram"
+						}
+					}
+				},
+				{
+					"match": "(\\bside\\b)[\\s\\n]*(=)?[\\s\\n]*(\\$client|\\$server|\\$both)?[\\s\\n]*",
+					"captures":  {
+						"1": {
+							"name": "entity.other.attribute-name.side.javagram"
+						},
+						"2": {
+							"name": "keyword.operator.assignment.javagram"
+						},
+						"3": {
+							"name": "string.symbol.tag.side.javagram"
+						}
+					}
 				}
 			]
 		},
 		{
-			"begin": "(<\\s*\\bjag\\b\\s*>)",
+			"match": "(<\/)(jag)(>)",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.meta.tag.javagram"
+				},
+				"2": {
+					"name": "entity.name.tag"
+				},
+				"3": {
+					"name": "punctuation.definition.meta.tag.javagram"
+				}
+			}
+		},
+		{
+			"begin": "(<\\bjag\\b[.\n]*>)",
 			"beginCaptures": {
 				"1": {
 					"name": "meta.tag.open.script.javagram"
 				}
 			},
-			"end": "(<\/\\s*\\bjag\\b\\s*>)",
+			"end": "(<\/\\bjag\\b>)",
 			"endCaptures": {
 				"1": {
 					"name": "meta.tag.close.script.javagram"
